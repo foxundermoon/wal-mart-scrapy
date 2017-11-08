@@ -12,18 +12,31 @@ class WalmartSpider(scrapy.Spider):
     name = 'walmart'
     allowed_domains = ['www.wal-martchina.com']
     start_urls = [
+        'http://www.wal-martchina.com/walmart/store/10_hebei.htm',
+        'http://www.wal-martchina.com/walmart/store/11_heilongjiang.htm',
+        'http://www.wal-martchina.com/walmart/store/12_henan.htm',
+        'http://www.wal-martchina.com/walmart/store/14_hubei.htm',
+        'http://www.wal-martchina.com/walmart/store/15_hunan.htm',
+        'http://www.wal-martchina.com/walmart/store/16_innermongolia.htm',
+        'http://www.wal-martchina.com/walmart/store/17_jiangsu.htm',
+        'http://www.wal-martchina.com/walmart/store/18_jiangxi.htm',
+        'http://www.wal-martchina.com/walmart/store/19_jilin.htm',
+        'http://www.wal-martchina.com/walmart/store/1_anhui.htm',
+        'http://www.wal-martchina.com/walmart/store/20_liaoning.htm',
+        'http://www.wal-martchina.com/walmart/store/24_shaanxi.htm',
+        'http://www.wal-martchina.com/walmart/store/25_shandong.htm',
+        'http://www.wal-martchina.com/walmart/store/26_shanghai.htm',
+        'http://www.wal-martchina.com/walmart/store/27_shanxi.htm',
+        'http://www.wal-martchina.com/walmart/store/28_sichuan.htm',
         'http://www.wal-martchina.com/walmart/store/2_beijing.htm',
-        # 'http://www.wal-martchina.com/walmart/store/25_shandong.htm',
-        # 'http://www.wal-martchina.com/walmart/store/31_tianjin.htm',
-        # 'http://www.wal-martchina.com/walmart/store/10_hebei.htm',
-        # 'http://www.wal-martchina.com/walmart/store/16_innermongolia.htm',
-        # 'http://www.wal-martchina.com/walmart/store/16_innermongolia.htm',
-        # 'http://www.wal-martchina.com/walmart/store/27_shanxi.htm',
-        # 'http://www.wal-martchina.com/walmart/store/24_shaanxi.htm',
-        # 'http://www.wal-martchina.com/walmart/store/28_sichuan.htm',
-        # 'http://www.wal-martchina.com/walmart/store/33_yunnan.htm',
-        # 'http://www.wal-martchina.com/walmart/store/8_guizhou.htm',
-        # ''
+        'http://www.wal-martchina.com/walmart/store/31_tianjin.htm',
+        'http://www.wal-martchina.com/walmart/store/33_yunnan.htm',
+        'http://www.wal-martchina.com/walmart/store/34_zhejiang.htm',
+        'http://www.wal-martchina.com/walmart/store/3_chongqing.htm',
+        'http://www.wal-martchina.com/walmart/store/4_fujian.htm',
+        'http://www.wal-martchina.com/walmart/store/6_guangdong.htm',
+        'http://www.wal-martchina.com/walmart/store/7_guangxi.htm',
+        'http://www.wal-martchina.com/walmart/store/8_guizhou.htm',
     ]
 
     def parse(self, response):
