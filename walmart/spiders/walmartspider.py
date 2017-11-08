@@ -5,7 +5,7 @@ from walmart.items import WalmartItem
 
 def text(elt):
     txt = elt.xpath('string(.)')[0].root
-    return txt.replace('\n','').encode('utf-8')
+    return txt.replace('\n','  ').encode('utf-8')
 
 
 class WalmartSpider(scrapy.Spider):
