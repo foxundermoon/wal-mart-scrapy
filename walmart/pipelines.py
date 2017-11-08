@@ -9,13 +9,16 @@ import csv
 import datetime
 import codecs
 
-file=open('walmart_{}.csv'.format(datetime.datetime.now()), 'wb')
+file = open('walmart_{}.csv'.format(datetime.datetime.now()), 'wb')
 file.write(codecs.BOM_UTF8)
-fieldnames=['city','name','address','tel','openTime','isSanm']
+fieldnames = ['area', 'city', 'name', 'address', 'tel', 'openTime', 'isSanm']
 writer = csv.DictWriter(file, fieldnames=fieldnames)
 writer.writeheader()
+
+
 class WalmartPipeline(object):
+
     def process_item(self, item, spider):
-        row=dict(item)
+        row = dict(item)
         writer.writerow(row)
         return item

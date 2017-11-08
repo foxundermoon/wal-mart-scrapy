@@ -5,7 +5,7 @@ from walmart.items import WalmartItem
 
 def text(elt):
     txt = elt.xpath('string(.)')[0].root
-    return txt.replace('\n','  ').encode('utf-8')
+    return txt.replace('\n', '  ').encode('utf-8')
 
 
 class WalmartSpider(scrapy.Spider):
@@ -13,12 +13,23 @@ class WalmartSpider(scrapy.Spider):
     allowed_domains = ['www.wal-martchina.com']
     start_urls = [
         'http://www.wal-martchina.com/walmart/store/2_beijing.htm',
-        'http://www.wal-martchina.com/walmart/store/25_shandong.htm',
-        ''
+        # 'http://www.wal-martchina.com/walmart/store/25_shandong.htm',
+        # 'http://www.wal-martchina.com/walmart/store/31_tianjin.htm',
+        # 'http://www.wal-martchina.com/walmart/store/10_hebei.htm',
+        # 'http://www.wal-martchina.com/walmart/store/16_innermongolia.htm',
+        # 'http://www.wal-martchina.com/walmart/store/16_innermongolia.htm',
+        # 'http://www.wal-martchina.com/walmart/store/27_shanxi.htm',
+        # 'http://www.wal-martchina.com/walmart/store/24_shaanxi.htm',
+        # 'http://www.wal-martchina.com/walmart/store/28_sichuan.htm',
+        # 'http://www.wal-martchina.com/walmart/store/33_yunnan.htm',
+        # 'http://www.wal-martchina.com/walmart/store/8_guizhou.htm',
+        # ''
     ]
 
     def parse(self, response):
         tables = response.xpath('//div[@class="maincontent"]/table')
+        area = response.xpath('//div[@class="maincontent"]/p[@class="style2"]')
+        areaStr = text(area)
         try:
             for i in range(len(tables)):
                 table = tables[i]
@@ -37,6 +48,7 @@ class WalmartSpider(scrapy.Spider):
                         elif cellLen is 6:
                             delta = 0
                         if cellLen > 5:
+                            item['area'] = areaStr
                             item['city'] = lastCity
                             item['name'] = text(cells[0 + delta])
                             item['address'] = text(cells[1 + delta])
